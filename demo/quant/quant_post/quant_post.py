@@ -47,7 +47,10 @@ def quantize(args):
         model_filename=args.model_filename,
         params_filename=args.params_filename,
         batch_size=args.batch_size,
-        batch_nums=args.batch_num)
+        batch_nums=args.batch_num,
+        is_full_quantize=True,
+        save_model_filename=None,
+        save_params_filename=None)
 
 
 def main():
