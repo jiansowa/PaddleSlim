@@ -9,6 +9,9 @@ import time
 import numpy as np
 import paddle.fluid as fluid
 
+# using static graph
+paddle.enable_static()
+
 sys.path[0] = os.path.join(
     os.path.dirname("__file__"), os.path.pardir, os.path.pardir)
 from paddleslim.common import get_logger
@@ -47,8 +50,12 @@ def quantize(args):
         model_filename=args.model_filename,
         params_filename=args.params_filename,
         batch_size=args.batch_size,
-        batch_nums=args.batch_num)
-
+        batch_nums=args.batch_num,
+        is_full_quantize=True,
+        save_model_filename=None,
+        save_params_filename=None,
+        weight_quantize_type='abs_max')
+        #weight_quantize_type='channel_wise_abs_max')
 
 def main():
     args = parser.parse_args()

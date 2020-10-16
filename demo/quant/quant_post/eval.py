@@ -25,6 +25,9 @@ sys.path[0] = os.path.join(
 import imagenet_reader as reader
 from utility import add_arguments, print_arguments
 
+# using static graph
+paddle.enable_static()
+
 parser = argparse.ArgumentParser(description=__doc__)
 # yapf: disable
 add_arg = functools.partial(add_arguments, argparser=parser)
